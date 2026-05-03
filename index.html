@@ -4,91 +4,97 @@
     <title>Wine Inventory</title>
   </head>
   <body>
+  <div class="app">
 
-    <h1>Wine Inventory</h1>
-    <p>Gestione scorte della tua vineria</p>
+    <header class="app-header">
+      <div>
+        <h1 class="app-title">Wine Inventory</h1>
+        <p class="app-subtitle">Gestione scorte della tua vineria</p>
+      </div>
+      <button class="btn btn-primary" onclick="toggleForm()">
+        + Aggiungi vino
+      </button>
+    </header>
 
     <div class="stats-grid">
-
-  <div class="stat-card">
-    <p class="stat-label">Bottiglie totali</p>
-    <p class="stat-value">67</p>
-  </div>
-
-  <div class="stat-card">
-    <p class="stat-label">Valore magazzino</p>
-    <p class="stat-value">€3.841</p>
-  </div>
-
-  <div class="stat-card">
-    <p class="stat-label">Scorte basse</p>
-    <p class="stat-value">2</p>
-  </div>
-
-  <div class="stat-card">
-    <p class="stat-label">Tipologie</p>
-    <p class="stat-value">4</p>
-  </div>
-
-</div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Vino</th>
-          <th>Cantina</th>
-          <th>Anno</th>
-          <th>Tipo</th>
-          <th>Quantità</th>
-          <th>Minimo</th>
-          <th>Prezzo</th>
-          <th>Stato</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Barolo DOCG</td>
-          <td>Giacomo Conterno</td>
-          <td>2019</td>
-          <td>Rosso</td>
-          <td>12</td>
-          <td>6</td>
-          <td>€85</td>
-          <td>OK</td>
-        </tr>
-        <tr>
-          <td>Brunello di Montalcino</td>
-          <td>Biondi-Santi</td>
-          <td>2018</td>
-          <td>Rosso</td>
-          <td>3</td>
-          <td>6</td>
-          <td>€120</td>
-          <td>Scorte basse</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Aggiungi un vino</h2>
-
-    <div>
-      <label>Nome vino</label>
-      <input type="text" placeholder="es. Barolo DOCG">
-    </div>
-    <div>
-      <label>Cantina</label>
-      <input type="text" placeholder="es. Giacomo Conterno">
-    </div>
-    <div>
-      <label>Quantità</label>
-      <input type="number" placeholder="0">
-    </div>
-    <div>
-      <label>Soglia minima</label>
-      <input type="number" placeholder="6">
+      <div class="stat-card">
+        <p class="stat-label">Bottiglie totali</p>
+        <p class="stat-value">67</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Valore magazzino</p>
+        <p class="stat-value">€3.841</p>
+      </div>
+      <div class="stat-card is-danger">
+        <p class="stat-label">Scorte basse</p>
+        <p class="stat-value">2</p>
+      </div>
+      <div class="stat-card">
+        <p class="stat-label">Tipologie</p>
+        <p class="stat-value">4</p>
+      </div>
     </div>
 
-    <button>Aggiungi vino</button>
+    <div class="alert" id="alert-bar">
+      Attenzione — scorte basse: Brunello di Montalcino (3), Franciacorta (4)
+    </div>
 
-  </body>
+    <div class="filters">
+      <button class="filter-btn is-active">Tutti</button>
+      <button class="filter-btn">Rosso</button>
+      <button class="filter-btn">Bianco</button>
+      <button class="filter-btn">Bollicine</button>
+      <button class="filter-btn">Rosato</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Vino</th>
+            <th>Cantina</th>
+            <th>Anno</th>
+            <th>Tipo</th>
+            <th>Qtà</th>
+            <th>Min</th>
+            <th>Prezzo</th>
+            <th>Stato</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Barolo DOCG</td>
+            <td>Giacomo Conterno</td>
+            <td>2019</td>
+            <td><span class="badge badge-rosso">Rosso</span></td>
+            <td>12</td>
+            <td>6</td>
+            <td>€85</td>
+            <td><span class="badge badge-ok">OK</span></td>
+            <td>
+              <button class="btn btn-icon">✏</button>
+              <button class="btn btn-icon btn-delete">✕</button>
+            </td>
+          </tr>
+          <tr class="is-low">
+            <td>Brunello di Montalcino</td>
+            <td>Biondi-Santi</td>
+            <td>2018</td>
+            <td><span class="badge badge-rosso">Rosso</span></td>
+            <td>3</td>
+            <td>6</td>
+            <td>€120</td>
+            <td><span class="badge badge-low">Scorte basse</span></td>
+            <td>
+              <button class="btn btn-icon">✏</button>
+              <button class="btn btn-icon btn-delete">✕</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</body>
 </html>
