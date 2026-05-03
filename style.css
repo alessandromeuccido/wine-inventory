@@ -41,3 +41,25 @@
   /* transizioni */
   --transition: 150ms ease;
 }
+
+/* ── reset & base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: var(--space-8);
+  line-height: 1.6;
+}
+
+/* ── layout principale ── */
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+}
