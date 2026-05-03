@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wine Inventory</title>
+  </head>
+  <body>
+
+    <h1>Wine Inventory</h1>
+    <p>Gestione scorte della tua vineria</p>
+
+    <div>
+      <p>Bottiglie totali</p>
+      <p>67</p>
+    </div>
+    <div>
+      <p>Valore magazzino</p>
+      <p>€3.841</p>
+    </div>
+    <div>
+      <p>Scorte basse</p>
+      <p>2</p>
+    </div>
+    <div>
+      <p>Tipologie</p>
+      <p>4</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Vino</th>
+          <th>Cantina</th>
+          <th>Anno</th>
+          <th>Tipo</th>
+          <th>Quantità</th>
+          <th>Minimo</th>
+          <th>Prezzo</th>
+          <th>Stato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Barolo DOCG</td>
+          <td>Giacomo Conterno</td>
+          <td>2019</td>
+          <td>Rosso</td>
+          <td>12</td>
+          <td>6</td>
+          <td>€85</td>
+          <td>OK</td>
+        </tr>
+        <tr>
+          <td>Brunello di Montalcino</td>
+          <td>Biondi-Santi</td>
+          <td>2018</td>
+          <td>Rosso</td>
+          <td>3</td>
+          <td>6</td>
+          <td>€120</td>
+          <td>Scorte basse</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Aggiungi un vino</h2>
+
+    <div>
+      <label>Nome vino</label>
+      <input type="text" placeholder="es. Barolo DOCG">
+    </div>
+    <div>
+      <label>Cantina</label>
+      <input type="text" placeholder="es. Giacomo Conterno">
+    </div>
+    <div>
+      <label>Quantità</label>
+      <input type="number" placeholder="0">
+    </div>
+    <div>
+      <label>Soglia minima</label>
+      <input type="number" placeholder="6">
+    </div>
+
+    <button>Aggiungi vino</button>
+
+  </body>
+</html>
