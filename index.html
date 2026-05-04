@@ -13,7 +13,7 @@
         <h1 class="app-title">Wine Inventory</h1>
         <p class="app-subtitle">Gestione scorte della tua vineria</p>
       </div>
-      <button class="btn btn-primary" onclick="toggleForm()">
+      <button id="btn-add-wine" class="btn btn-primary" onclick="toggleForm()">
         + Aggiungi vino
       </button>
     </header>
@@ -96,6 +96,42 @@
         </tbody>
       </table>
     </div>
+
+    <div id="add-form" class="form-section">
+      <div id="add-form" class="form-section">
+        <h2 class="form-title">Aggiungi un vino</h2>
+
+        <div class="form-grid">
+          <div class="field">
+            <label>Nome vino</label>
+            <input id="f-nome" type="text" placeholder="es. Barolo DOCG">
+          </div>
+          
+          <div class="field">
+            <label>Cantina</label>
+            <input id="f-cantina" type="text" placeholder="es. Giacomo Conterno">
+          </div>
+          
+          <div class="field">
+            <label>Anno</label>
+            <input id="f-anno" type="number" placeholder="2020">
+          </div>
+          
+          <div class="field">
+            <label>Quantità</label>
+            <input id="f-qty" type="number" placeholder="0">
+          </div>
+          
+          <div class="field">
+            <label>Soglia minima</label>
+            <input id="f-min" type="number" placeholder="6">
+          </div>
+    </div>
+
+    <button class="btn btn-primary" onclick="addWine()">Aggiungi</button>
+    <button class="btn btn-ghost" onclick="toggleForm()">Annulla</button>
+    </div>
+  </div>
 
   </div>
  <script src="script.js"></script>
