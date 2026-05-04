@@ -124,3 +124,355 @@ body {
   font-weight: 600;
   line-height: 1;
 }
+
+/* ── alert scorte ── */
+.alert {
+  display: none;
+  background: var(--color-danger-bg);
+  border: 0.5px solid var(--color-danger);
+  border-left: 3px solid var(--color-danger);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
+  color: var(--color-danger);
+  margin-bottom: var(--space-5);
+}
+
+.alert.is-visible {
+  display: block;
+}
+
+/* ── filtri ── */
+.filters {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-sans);
+  padding: var(--space-1) var(--space-3);
+  border: var(--border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filter-btn:hover {
+  color: var(--color-text);
+  border-color: var(--color-text-muted);
+}
+
+.filter-btn.is-active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}
+
+/* ── tabella ── */
+.table-wrap {
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+  background: var(--color-surface);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+thead {
+  background: var(--color-surface-alt);
+}
+
+th {
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: var(--border);
+}
+
+td {
+  padding: var(--space-3);
+  border-bottom: var(--border);
+  vertical-align: middle;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr {
+  transition: background var(--transition);
+}
+
+tbody tr:hover {
+  background: var(--color-surface-alt);
+}
+
+tbody tr.is-low td:first-child {
+  box-shadow: inset 3px 0 0 var(--color-danger);
+}
+
+/* ── badge tipo vino ── */
+.badge {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: 2px var(--space-2);
+  border-radius: 10px;
+}
+
+.badge-rosso     { background: #f5e6e6; color: #7a1a1a; }
+.badge-bianco    { background: var(--color-warning-bg); color: var(--color-warning); }
+.badge-bollicine { background: #e6f0fb; color: #1a4a7a; }
+.badge-rosato    { background: #fbeaf0; color: #7a2444; }
+.badge-ok        { background: var(--color-success-bg); color: var(--color-success); }
+.badge-low       { background: var(--color-danger-bg); color: var(--color-danger); }
+
+/* ── form aggiunta ── */
+.form-section {
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  display: none;
+}
+
+.form-section.is-open {
+  display: block;
+}
+
+.form-title {
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  margin-bottom: var(--space-4);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  align-items: end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.field label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.field input,
+.field select {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  padding: var(--space-2) var(--space-3);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color var(--transition);
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+}
+
+/* ── bottoni ── */
+.btn {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  border: var(--border);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+}
+
+.btn-ghost:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+.btn-icon {
+  font-size: var(--font-size-xs);
+  padding: var(--space-1) var(--space-2);
+  background: transparent;
+  color: var(--color-text-muted);
+  border-color: transparent;
+}
+
+.btn-icon:hover {
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.btn-icon.btn-delete:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  background: var(--color-danger-bg);
+}
+
+/* ── badge tipo vino ── */
+.badge {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: 2px var(--space-2);
+  border-radius: 10px;
+}
+
+.badge-rosso     { background: #f5e6e6; color: #7a1a1a; }
+.badge-bianco    { background: var(--color-warning-bg); color: var(--color-warning); }
+.badge-bollicine { background: #e6f0fb; color: #1a4a7a; }
+.badge-rosato    { background: #fbeaf0; color: #7a2444; }
+.badge-ok        { background: var(--color-success-bg); color: var(--color-success); }
+.badge-low       { background: var(--color-danger-bg); color: var(--color-danger); }
+
+/* ── form aggiunta ── */
+.form-section {
+  border: var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  display: none;
+}
+
+.form-section.is-open {
+  display: block;
+}
+
+.form-title {
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  margin-bottom: var(--space-4);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  align-items: end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.field label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.field input,
+.field select {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  padding: var(--space-2) var(--space-3);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color var(--transition);
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+}
+
+/* ── bottoni ── */
+.btn {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  border: var(--border);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+}
+
+.btn-ghost:hover {
+  background: var(--color-surface-alt);
+  color: var(--color-text);
+}
+
+.btn-icon {
+  font-size: var(--font-size-xs);
+  padding: var(--space-1) var(--space-2);
+  background: transparent;
+  color: var(--color-text-muted);
+  border-color: transparent;
+}
+
+.btn-icon:hover {
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.btn-icon.btn-delete:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  background: var(--color-danger-bg);
+}
