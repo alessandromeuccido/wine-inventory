@@ -1,8 +1,6 @@
 // prossimo Id disponibile 
 let nextWineId = 3;
 
-
-
 // Array vini nel form
 let wineBottles = [
   {
@@ -23,10 +21,13 @@ let wineBottles = [
   }
 ]
 
+
+// OPEN FORM NEW WINE
 function toggleForm() {
   document.getElementById("add-form").classList.toggle("is-open");
 }
 
+// ADD NEW WINES 
 function addWine() {
 
   // passo 1 — leggi
@@ -59,8 +60,8 @@ function addWine() {
   document.getElementById("f-qty").value     = "";
   document.getElementById("f-min").value     = "";
 
-  // console.log(wineBottles)
-  renderTable()
+  renderTable();
+  renderStats();
 }
 
 
@@ -70,12 +71,13 @@ function deleteWine(id) {
     return vino.id !== id;
   })
   
-  renderTable()
+  renderTable();
+  renderStats();
 }
 
 
 
-// render form vini
+// RENDER WINES TABLES 
 function renderTable() {
   let righe = "";
 
@@ -97,14 +99,23 @@ function renderTable() {
   document.getElementById('tbody').innerHTML = righe;
 }
 
+// RENDER STATS
 function renderStats() {
   let totaleBottiglie = wineBottles.reduce(function(somma, vino) {
     return somma + vino.quantity;
   }, 0);
 
-  document.getElementById("stat-totale").innerHTML = totaleBottiglie
+  let lowStocks = wineBottles.filter(function(vino) {
+    return vino.quantity <= vino.min;
+  });
+
+  document.getElementById("stat-totale").innerHTML    = totaleBottiglie;
+  document.getElementById("stat-scorte").innerHTML = lowStocks.length;
+  document.getElementById("stat-tipologie").innerHTML = wineBottles.length;
 }
 
+renderTable();
+renderStats();
 
 
 
