@@ -1,11 +1,25 @@
-const wineBottles = [
+// prossimo Id disponibile 
+let nextWineId = 3;
+
+// Array vini nel form
+let wineBottles = [
   {
+    id: 1,
     name:"Pinot Grigio DOC Le Romiglia",
-    quantity: 2
+    quantity: 2,
+    cantina: "Prova",
+    anno: "Prova",
+    quantity : "Prova",
+    min: "Prova"
   },
   {
+    id:2,
     name:"Lunario Colli Colli Lanuvini DOP Superiore La Luna Del Casale",
-    quantity: 2
+    quantity: 2,
+    cantina: "Prova",
+    anno: "Prova",
+    quantity : "Prova",
+    min: "Prova"
   }
 ]
 
@@ -24,6 +38,7 @@ function addWine() {
 
   // passo 2 — costruisci
   let nuovoVino = {
+    id:       nextWineId,
     name:     nome,
     cantina:  cantina,
     anno:     anno,
@@ -34,14 +49,25 @@ function addWine() {
   // passo 3 — aggiungi
   wineBottles.push(nuovoVino);
 
+  // incremento per il prossimo vino
+  nextWineId = nextWineId +1
+
   // passo 4 — pulisci
   document.getElementById("f-nome").value    = "";
   document.getElementById("f-cantina").value = "";
   document.getElementById("f-anno").value    = "";
   document.getElementById("f-qty").value     = "";
   document.getElementById("f-min").value     = "";
+
+  // console.log(wineBottles)
+  renderTable()
+}
+
+function deleteWine(id) {
+  wineBottles = wineBottles.filter(function(vino) {
+    return vino.id !== id;
+  })
   
-  console.log(wineBottles)
   renderTable()
 }
 
@@ -56,11 +82,15 @@ function renderTable() {
         <td>${vino.anno}</td>
         <td>${vino.quantity}</td>
         <td>${vino.min}</td>
+        <td>
+        <button onclick="deleteWine(${vino.id})">✕</button>
+        </td>
       </tr>`;
   });
 
   document.getElementById('tbody').innerHTML = "";
-
   document.getElementById('tbody').innerHTML = righe;
 }
+
+
 
