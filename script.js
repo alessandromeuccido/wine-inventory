@@ -42,5 +42,25 @@ function addWine() {
   document.getElementById("f-min").value     = "";
   
   console.log(wineBottles)
+  renderTable()
+}
+
+function renderTable() {
+  let righe = "";
+
+  wineBottles.forEach(function(vino) {
+    righe = righe + 
+      `<tr>
+        <td>${vino.name}</td>
+        <td>${vino.cantina}</td>
+        <td>${vino.anno}</td>
+        <td>${vino.quantity}</td>
+        <td>${vino.min}</td>
+      </tr>`;
+  });
+
+  document.getElementById('tbody').innerHTML = "";
+
+  document.getElementById('tbody').innerHTML = righe;
 }
 
