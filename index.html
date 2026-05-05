@@ -9,19 +9,24 @@
   <div class="app">
 
     <header class="app-header">
+
+      <!-- TITOLO -->
       <div>
         <h1 class="app-title">Wine Inventory</h1>
         <p class="app-subtitle">Gestione scorte della tua vineria</p>
       </div>
+
+      <!-- BOTTONE PER AGGIUNGERE I VINI -->
       <button id="btn-add-wine" class="btn btn-primary" onclick="toggleForm()">
         + Aggiungi vino
       </button>
     </header>
 
+    <!-- CARD STATISTICHE -->
     <div class="stats-grid">
       <div class="stat-card">
         <p class="stat-label">Bottiglie totali</p>
-        <p class="stat-value">67</p>
+        <p class="stat-value" id="stat-totale">67</p>
       </div>
       <div class="stat-card">
         <p class="stat-label">Valore magazzino</p>
@@ -29,18 +34,20 @@
       </div>
       <div class="stat-card is-danger">
         <p class="stat-label">Scorte basse</p>
-        <p class="stat-value">2</p>
+        <p class="stat-value" id="stat-scorte">2</p>
       </div>
       <div class="stat-card">
         <p class="stat-label">Tipologie</p>
-        <p class="stat-value">4</p>
+        <p class="stat-value" id="stat-tipologie">4</p>
       </div>
     </div>
 
+    <!-- ALLERTA ESAURIMENTO SCORTE -->
     <div class="alert" id="alert-bar">
       Attenzione — scorte basse: Brunello di Montalcino (3), Franciacorta (4)
     </div>
 
+    <!-- FILTRI VIEWS VISTE -->
     <div class="filters">
       <button class="filter-btn is-active">Tutti</button>
       <button class="filter-btn">Rosso</button>
@@ -51,6 +58,8 @@
 
     <div class="table-wrap">
       <table>
+
+
         <thead>
           <tr>
             <th>Vino</th>
@@ -64,6 +73,8 @@
             <th></th>
           </tr>
         </thead>
+
+        <!-- INVENTARIO VINI -->
         <tbody id="tbody">
           <tr>
             <td>Barolo DOCG</td>
@@ -79,6 +90,7 @@
               <button class="btn btn-icon btn-delete">✕</button>
             </td>
           </tr>
+
           <tr class="is-low">
             <td>Brunello di Montalcino</td>
             <td>Biondi-Santi</td>
@@ -93,12 +105,14 @@
               <button class="btn btn-icon btn-delete">✕</button>
             </td>
           </tr>
+
         </tbody>
+
       </table>
     </div>
 
 
-      
+      <!-- FORM VISIBLE PER AGGIUNGERE VINI-->
       <div id="add-form" class="form-section">
       
         <h2 class="form-title">Aggiungi un vino</h2>

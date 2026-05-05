@@ -1,6 +1,8 @@
 // prossimo Id disponibile 
 let nextWineId = 3;
 
+
+
 // Array vini nel form
 let wineBottles = [
   {
@@ -9,7 +11,6 @@ let wineBottles = [
     quantity: 2,
     cantina: "Prova",
     anno: "Prova",
-    quantity : "Prova",
     min: "Prova"
   },
   {
@@ -18,7 +19,6 @@ let wineBottles = [
     quantity: 2,
     cantina: "Prova",
     anno: "Prova",
-    quantity : "Prova",
     min: "Prova"
   }
 ]
@@ -63,6 +63,8 @@ function addWine() {
   renderTable()
 }
 
+
+// cancella vini selezionati 
 function deleteWine(id) {
   wineBottles = wineBottles.filter(function(vino) {
     return vino.id !== id;
@@ -71,6 +73,9 @@ function deleteWine(id) {
   renderTable()
 }
 
+
+
+// render form vini
 function renderTable() {
   let righe = "";
 
@@ -91,6 +96,15 @@ function renderTable() {
   document.getElementById('tbody').innerHTML = "";
   document.getElementById('tbody').innerHTML = righe;
 }
+
+function renderStats() {
+  let totaleBottiglie = wineBottles.reduce(function(somma, vino) {
+    return somma + vino.quantity;
+  }, 0);
+
+  document.getElementById("stat-totale").innerHTML = totaleBottiglie
+}
+
 
 
 
