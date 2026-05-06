@@ -1,7 +1,10 @@
-// prossimo Id disponibile 
+// VARIABILE PER QUALE BOTTONE É ATTIVO 
+let filtroAttivo = "Tutti"
+
+// PROSSIMO ID LISTA VINI DISPONIBILE 
 let nextWineId = 3;
 
-// Array vini nel form
+// ARRAY VINI NEL INVENTARIO  
 let wineBottles = [
   {
     id: 1,
@@ -79,6 +82,7 @@ function addWine() {
 
 // cancella vini selezionati 
 function deleteWine(id) {
+  
   wineBottles = wineBottles.filter(function(vino) {
     return vino.id !== id;
   })
@@ -89,9 +93,15 @@ function deleteWine(id) {
 
 // RENDER WINES TABLES 
 function renderTable() {
+  // PRIMA — calcola cosa mostrare
+  let visibili = filtroAttivo === "Tutti"
+  ? wineBottles
+  : wineBottles.filter(function(vino) {
+    return vino.types === filtroAttivo;
+  });
+  
   let righe = "";
-
-  wineBottles.forEach(function(vino) {
+  visibili.forEach(function(vino) {
     righe = righe + 
       `<tr>
         <td>${vino.name}</td>
@@ -115,8 +125,6 @@ function renderTable() {
 // RENDER STATS
 function renderStats() {
 
-  console.log(wineBottles);
-
   let totaleBottiglie = wineBottles.reduce(function(somma, vino) {
     return somma + vino.quantity;
   }, 0);
@@ -135,8 +143,22 @@ function renderStats() {
   document.getElementById("stat-value").innerHTML = "€" + valoreMagazzino;
 }
 
+// SET FILTER WINES TYPES
+function setFilter(tipo, btn) {
+  // 1 — aggiorna la variabile
+  filtroAttivo = tipo;
+
+  // 2 — rimuovi is-active da tutti
+  document.querySelectorAll(".filter-btn").forEach(function(b) {
+    b.classList.remove("is-active");
+  });
+
+  // 3 — aggiungi is-active al bottone cliccato
+  btn.classList.add("is-active");
+
+  // 4 — ridisegna
+  renderTable();
+}
+
 renderTable();
 renderStats();
-
-
-
