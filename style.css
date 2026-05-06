@@ -262,7 +262,7 @@ tbody tr.is-low td:first-child {
 
 .form-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;  /* 3 colonne invece di 5 */  
   gap: var(--space-3);
   margin-bottom: var(--space-4);
   align-items: end;
@@ -386,13 +386,13 @@ tbody tr.is-low td:first-child {
   margin-bottom: var(--space-4);
 }
 
-.form-grid {
+/* .form-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: var(--space-3);
   margin-bottom: var(--space-4);
   align-items: end;
-}
+} */
 
 .field {
   display: flex;
