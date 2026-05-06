@@ -8,19 +8,22 @@ let wineBottles = [
     name:"Pinot Grigio DOC Le Romiglia",
     quantity: 2,
     cantina: "Prova",
-    anno: "Prova",
-    min: "Prova"
+    anno: 2022,
+    min: 3,
+    price: 1,
+    status: "OK"
   },
   {
     id:2,
     name:"Lunario Colli Colli Lanuvini DOP Superiore La Luna Del Casale",
     quantity: 2,
     cantina: "Prova",
-    anno: "Prova",
-    min: "Prova"
+    anno: 2022,
+    min: 3,
+    price: 1,
+    status: "OK"
   }
 ]
-
 
 // OPEN FORM NEW WINE
 function toggleForm() {
@@ -33,9 +36,12 @@ function addWine() {
   // passo 1 — leggi
   let nome    = document.getElementById("f-nome").value;
   let cantina = document.getElementById("f-cantina").value;
-  let anno    = document.getElementById("f-anno").value;
-  let qty     = document.getElementById("f-qty").value;
-  let min     = document.getElementById("f-min").value;
+  let anno    = parseInt(document.getElementById("f-anno").value);
+  let types   = document.getElementById("f-types").value;
+  let qty     = parseInt(document.getElementById("f-qty").value);
+  let min     = parseInt(document.getElementById("f-min").value);
+  let price   = parseInt(document.getElementById("f-price").value);
+  let status  = qty <= min ? "Scorte basse" : "OK";
 
   // passo 2 — costruisci
   let nuovoVino = {
@@ -43,8 +49,11 @@ function addWine() {
     name:     nome,
     cantina:  cantina,
     anno:     anno,
+    types:    types,
     quantity: qty,
-    min:      min
+    min:      min,
+    price:    price,
+    status:   status
   };
 
   // passo 3 — aggiungi
@@ -57,13 +66,16 @@ function addWine() {
   document.getElementById("f-nome").value    = "";
   document.getElementById("f-cantina").value = "";
   document.getElementById("f-anno").value    = "";
+  document.getElementById("f-types").value   = "";
   document.getElementById("f-qty").value     = "";
   document.getElementById("f-min").value     = "";
+  document.getElementById("f-price").value   = "";
+  // document.getElementById("f-status").value  = "";
+  
 
   renderTable();
   renderStats();
 }
-
 
 // cancella vini selezionati 
 function deleteWine(id) {
@@ -74,8 +86,6 @@ function deleteWine(id) {
   renderTable();
   renderStats();
 }
-
-
 
 // RENDER WINES TABLES 
 function renderTable() {
@@ -89,6 +99,8 @@ function renderTable() {
         <td>${vino.anno}</td>
         <td>${vino.quantity}</td>
         <td>${vino.min}</td>
+        <td>${vino.price}</td>
+        <td>${vino.status}</td>
         <td>
         <button onclick="deleteWine(${vino.id})">✕</button>
         </td>
@@ -109,9 +121,14 @@ function renderStats() {
     return vino.quantity <= vino.min;
   });
 
-  document.getElementById("stat-totale").innerHTML    = totaleBottiglie;
+  let valoreMagazzino = wineBottles.reduce(function(somma, vino) {
+    return somma + (vino.quantity * vino.price);
+  }, 0); 
+
+  document.getElementById("stat-totale").innerHTML = totaleBottiglie;
   document.getElementById("stat-scorte").innerHTML = lowStocks.length;
   document.getElementById("stat-tipologie").innerHTML = wineBottles.length;
+  document.getElementById("stat-value").innerHTML = "€" + valoreMagazzino;
 }
 
 renderTable();

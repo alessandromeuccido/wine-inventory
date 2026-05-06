@@ -30,7 +30,7 @@
       </div>
       <div class="stat-card">
         <p class="stat-label">Valore magazzino</p>
-        <p class="stat-value">€3.841</p>
+        <p class="stat-value" id="stat-value">€3.841</p>
       </div>
       <div class="stat-card is-danger">
         <p class="stat-label">Scorte basse</p>
@@ -133,6 +133,12 @@
             <input id="f-anno" type="number" placeholder="2020">
           </div>
           
+
+          <div class="field">
+            <label>Tipo</label>
+            <input id="f-types" type="text" placeholder="00">
+          </div>
+
           <div class="field">
             <label>Quantità</label>
             <input id="f-qty" type="number" placeholder="0">
@@ -140,7 +146,17 @@
           
           <div class="field">
             <label>Soglia minima</label>
-            <input id="f-min" type="number" placeholder="6">
+            <input id="f-min" type="number" placeholder="3">
+          </div>
+
+          <div class="field">  
+            <label>Prezzo</label>
+            <input id="f-price" type="number" placeholder="10">
+          </div>
+
+          <div class="field">
+            <label>Status</label>
+            <input id="f-stat" type="number" placeholder="6">
           </div>
         </div>
 
