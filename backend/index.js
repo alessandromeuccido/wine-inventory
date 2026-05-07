@@ -3,12 +3,12 @@ const express = require('express');
 const Database = require('better-sqlite3');
 const path = require('path');
 
-const cors = require('cors');
-app.use(cors());
-
 // CREA APP EXPRESS
 const app = express();
 const PORT = 3000;
+
+const cors = require('cors');
+app.use(cors());
 
 app.use(express.json());
 
