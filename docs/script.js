@@ -33,6 +33,8 @@ async function addWine() {
     body:    JSON.stringify(nuovoVino)
   });
 
+  
+
   const vinoSalvato = await risposta.json();
   wineBottles.push(vinoSalvato);
 
