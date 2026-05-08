@@ -1,5 +1,5 @@
 🍷 Wine Inventory Manager
-A full-stack web application for managing wine cellar stock, built from scratch as a self-taught developer transitioning from 10+ years as a professional chef.
+A full-stack web application for managing wine cellar stock, built from scratch 
 Live Demo: alessandromeuccido.github.io/wine-inventory
 
 Features
