@@ -1,3 +1,5 @@
+const API_URL = "http://localhost:3000";
+
 // VARIABILE FILTRO ATTIVO
 let filtroAttivo = "Tutti";
 
@@ -25,7 +27,7 @@ async function addWine() {
     quantity: qty, min, price, status
   };
 
-  const risposta = await fetch("http://localhost:3000/api/wines", {
+  const risposta = await fetch(`${API_URL}/api/wines`, {
     method:  "POST",
     headers: { "Content-Type": "application/json" },
     body:    JSON.stringify(nuovoVino)
@@ -49,7 +51,7 @@ async function addWine() {
 
 // DELETE WINE — elimina dal database
 async function deleteWine(id) {
-  await fetch(`http://localhost:3000/api/wines/${id}`, {
+  await fetch(`${API_URL}/api/wines/${id}`, {
     method: "DELETE"
   });
 
@@ -124,7 +126,7 @@ function setFilter(tipo, btn) {
 
 // AVVIO — carica vini dal server
 async function caricaVini() {
-  const risposta  = await fetch("http://localhost:3000/api/wines");
+  const risposta  = await fetch(`${API_URL}/api/wines`);
   wineBottles     = await risposta.json();
   renderTable();
   renderStats();
