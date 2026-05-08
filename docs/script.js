@@ -1,4 +1,4 @@
-const API_URL = "http://wine-inventory-production.up.railway.app";
+const API_URL = "https://wine-inventory-production.up.railway.app";
 
 // VARIABILE FILTRO ATTIVO
 let filtroAttivo = "Tutti";
