@@ -135,3 +135,10 @@ async function caricaVini() {
 }
 
 caricaVini();
+
+// REGISTRA SERVICE WORKER
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/wine-inventory/service-worker.js")
+    .then(() => console.log("Service Worker registrato"))
+    .catch((err) => console.log("Errore SW:", err));
+}
