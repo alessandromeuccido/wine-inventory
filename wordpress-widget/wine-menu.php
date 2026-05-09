@@ -15,7 +15,7 @@ add_shortcode('wine_menu', 'wine_menu_render');
 function wine_menu_render() {
 
   // URL del tuo backend Railway
-  $api_url = 'https://wine-inventory-production.up.railway.app/api/wines';
+  $api_url = 'https://wine-inventory-production.up.railway.app';
 
   // Chiama l'API
   $response = wp_remote_get($api_url);
